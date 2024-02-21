@@ -4,7 +4,6 @@ LABEL com.bitwarden.product="bitwarden"
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-    gosu \
     curl \
     && rm -rf /var/lib/apt/lists/*
 

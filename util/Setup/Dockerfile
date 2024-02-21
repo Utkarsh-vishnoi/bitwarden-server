@@ -5,7 +5,6 @@ LABEL com.bitwarden.product="bitwarden" com.bitwarden.project="setup"
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     openssl \
-    gosu \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
