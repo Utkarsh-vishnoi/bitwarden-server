@@ -11,7 +11,7 @@ public class DockerComposeBuilder
 
     public void BuildForInstaller()
     {
-        _context.Config.DatabaseDockerVolume = _context.HostOS == "mac";
+        _context.Config.DatabaseDockerVolume = true;
         Build();
     }
 
