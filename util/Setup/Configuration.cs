@@ -86,7 +86,7 @@ public class Configuration
         "database.\n" +
         "WARNING: Changing this value will cause you to lose access to the existing persisted database.\n" +
         "Learn more: https://docs.docker.com/storage/volumes/")]
-    public bool DatabaseDockerVolume { get; set; }
+    public bool DatabaseDockerVolume { get; set; } = true;
 
     [Description("Defines \"real\" IPs in nginx.conf. Useful for defining proxy servers that forward the \n" +
         "client IP address.\n" +
