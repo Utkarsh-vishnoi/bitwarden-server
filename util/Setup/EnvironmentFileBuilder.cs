@@ -25,7 +25,7 @@ public class EnvironmentFileBuilder
         _mssqlValues = new Dictionary<string, string>
         {
             ["ACCEPT_EULA"] = "Y",
-            ["MSSQL_PID"] = "Express",
+            ["MSSQL_PID"] = "Premium",
             ["SA_PASSWORD"] = "SECRET",
         };
     }
