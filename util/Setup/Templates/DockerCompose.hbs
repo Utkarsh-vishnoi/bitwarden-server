@@ -1,4 +1,4 @@
-﻿#
+#
 # Useful references:
 # https://docs.docker.com/compose/compose-file/
 # https://docs.docker.com/compose/reference/overview/#use--f-to-specify-name-and-path-of-one-or-more-compose-files
@@ -17,7 +17,7 @@ version: '{{{ComposeVersion}}}'
 
 services:
   mssql:
-    image: bitwarden/mssql:{{{CoreVersion}}}
+    image: mcr.microsoft.com/azure-sql-edge:{{{CoreVersion}}}
     container_name: bitwarden-mssql
     restart: always
     stop_grace_period: 60s
@@ -31,11 +31,10 @@ services:
       - ../mssql/backups:/etc/bitwarden/mssql/backups
     env_file:
       - mssql.env
-      - ../env/uid.env
       - ../env/mssql.override.env
 
-  web:
-    image: bitwarden/web:{{{WebVersion}}}
+  web
+:    image: git.utkarsh.cloudns.asia/bitwarden/web:{{{WebVersion}}}
     container_name: bitwarden-web
     restart: always
     volumes:
@@ -45,7 +44,7 @@ services:
       - ../env/uid.env
 
   attachments:
-    image: bitwarden/attachments:{{{CoreVersion}}}
+    image: git.utkarsh.cloudns.asia/bitwarden/attachments:{{{CoreVersion}}}
     container_name: bitwarden-attachments
     restart: always
     volumes:
@@ -55,7 +54,7 @@ services:
       - ../env/uid.env
 
   api:
-    image: bitwarden/api:{{{CoreVersion}}}
+    image: git.utkarsh.cloudns.asia/bitwarden/api:{{{CoreVersion}}}
     container_name: bitwarden-api
     restart: always
     volumes:
@@ -71,7 +70,7 @@ services:
       - public
 
   identity:
-    image: bitwarden/identity:{{{CoreVersion}}}
+    image: git.utkarsh.cloudns.asia/bitwarden/identity:{{{CoreVersion}}}
     container_name: bitwarden-identity
     restart: always
     volumes:
@@ -88,7 +87,7 @@ services:
       - public
 
   sso:
-    image: bitwarden/sso:{{{CoreVersion}}}
+    image: git.utkarsh.cloudns.asia/bitwarden/sso:{{{CoreVersion}}}
     container_name: bitwarden-sso
     restart: always
     volumes:
@@ -105,7 +104,7 @@ services:
       - public
 
   admin:
-    image: bitwarden/admin:{{{CoreVersion}}}
+    image: git.utkarsh.cloudns.asia/bitwarden/admin:{{{CoreVersion}}}
     container_name: bitwarden-admin
     restart: always
     depends_on:
@@ -123,7 +122,7 @@ services:
       - public
 
   icons:
-    image: bitwarden/icons:{{{CoreVersion}}}
+    image: git.utkarsh.cloudns.asia/bitwarden/icons:{{{CoreVersion}}}
     container_name: bitwarden-icons
     restart: always
     volumes:
@@ -137,7 +136,7 @@ services:
       - public
 
   notifications:
-    image: bitwarden/notifications:{{{CoreVersion}}}
+    image: git.utkarsh.cloudns.asia/bitwarden/notifications:{{{CoreVersion}}}
     container_name: bitwarden-notifications
     restart: always
     volumes:
@@ -152,7 +151,7 @@ services:
       - public
 
   events:
-    image: bitwarden/events:{{{CoreVersion}}}
+    image: git.utkarsh.cloudns.asia/bitwarden/events:{{{CoreVersion}}}
     container_name: bitwarden-events
     restart: always
     volumes:
@@ -167,7 +166,7 @@ services:
       - public
 
   nginx:
-    image: bitwarden/nginx:{{{CoreVersion}}}
+    image: git.utkarsh.cloudns.asia/bitwarden/nginx:{{{CoreVersion}}}
     container_name: bitwarden-nginx
     restart: always
     depends_on:
@@ -197,7 +196,7 @@ services:
 
 {{#if EnableKeyConnector}}
   key-connector:
-    image: bitwarden/key-connector:{{{KeyConnectorVersion}}}
+    image: git.utkarsh.cloudns.asia/bitwarden/key-connector:{{{KeyConnectorVersion}}}
     container_name: bitwarden-key-connector
     restart: always
     volumes:
@@ -214,7 +213,7 @@ services:
 {{#if EnableScim}}
 
   scim:
-    image: bitwarden/scim:{{{CoreVersion}}}
+    image: git.utkarsh.cloudns.asia/bitwarden/scim:{{{CoreVersion}}}
     container_name: bitwarden-scim
     restart: always
     volumes:
