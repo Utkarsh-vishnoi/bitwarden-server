@@ -26,7 +26,7 @@ public class EnvironmentFileBuilder
         {
             ["ACCEPT_EULA"] = "Y",
             ["MSSQL_PID"] = "Premium",
-            ["SA_PASSWORD"] = "SECRET",
+            ["MSSQL_SA_PASSWORD"] = "SECRET",
         };
     }
 
