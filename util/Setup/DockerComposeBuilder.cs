@@ -66,7 +66,7 @@ public class DockerComposeBuilder
         }
 
         public string ComposeVersion { get; set; } = "3";
-        public bool MssqlDataDockerVolume { get; set; }
+        public bool MssqlDataDockerVolume { get; set; } = true;
         public bool EnableKeyConnector { get; set; }
         public bool EnableScim { get; set; }
         public string HttpPort { get; set; }
