@@ -17,7 +17,7 @@ version: '{{{ComposeVersion}}}'
 
 services:
   mssql:
-    image: mcr.microsoft.com/azure-sql-edge:{{{CoreVersion}}}
+    image: git.utkarsh.cloudns.asia/bitwarden/mssql:{{{CoreVersion}}}
     container_name: bitwarden-mssql
     restart: always
     stop_grace_period: 60s
