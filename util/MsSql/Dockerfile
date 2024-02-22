@@ -31,6 +31,6 @@ RUN chmod +x /entrypoint.sh \
     && chmod +x /backup-db.sh
 
 HEALTHCHECK --start-period=120s --timeout=3s CMD /opt/mssql-tools/bin/sqlcmd \
-    -S localhost -U sa -P ${SA_PASSWORD} -Q "SELECT 1" || exit 1
+    -S localhost -U sa -P ${MSSQL_SA_PASSWORD} -Q "SELECT 1" || exit 1
 
 ENTRYPOINT ["/entrypoint.sh"]
