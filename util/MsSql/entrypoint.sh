@@ -10,7 +10,7 @@ fi
 if [ ! -z "$MSSQL_SA_PASSWORD_FILE" ]
 then
     # It should be exported, so it is available to the env command below.
-    export SA_PASSWORD=$(cat $MSSQL_SA_PASSWORD_FILE)
+    export MSSQL_SA_PASSWORD=$(cat $MSSQL_SA_PASSWORD_FILE)
 fi
 
 # Replace database name in backup-db.sql
