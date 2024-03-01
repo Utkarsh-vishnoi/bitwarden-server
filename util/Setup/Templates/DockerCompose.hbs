@@ -174,13 +174,20 @@ services:
       - admin
       - api
       - identity
+{{#if EnableTraefik}}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.bitwarden.rule=Host(`bitwarden.utkarsh.freemyip.com`)
+      - traefik.http.routers.bitwarden.entrypoints=web
 {{#if HasPort}}
-    ports:
 {{#if HttpPort}}
-      - '{{{HttpPort}}}:8080'
+      - traefik.http.services.bitwarden.loadbalancer.server.port=8080
 {{/if}}
 {{#if HttpsPort}}
-      - '{{{HttpsPort}}}:8443'
+      - traefik.http.routers.bitwarden.tls=true
+      - traefik.http.routers.bitwarden.tls.certresolver=ca
+      - traefik.http.services.bitwarden.loadbalancer.server.port=8443
+{{/if}}
 {{/if}}
 {{/if}}
     volumes:

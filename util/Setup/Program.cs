@@ -81,6 +81,11 @@ public class Program
             _context.Install.Database = _context.Parameters["dbname"];
         }
 
+        if (_context.Parameters.ContainsKey("enable-traefik"))
+        {
+            _context.Config.EnableTraefik = _context.Parameters["enable-traefik"] == "true";
+        }
+
         if (_context.Stub)
         {
             _context.Install.InstallationId = Guid.Empty;

@@ -101,6 +101,9 @@ public class Configuration
     [Description("Enable SCIM")]
     public bool EnableScim { get; set; } = false;
 
+    [Description("Enable Traefik mapping")]
+    public bool EnableTraefik { get; set; } = false;
+
     [YamlIgnore]
     public string Domain
     {

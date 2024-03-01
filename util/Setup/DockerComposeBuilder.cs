@@ -49,6 +49,7 @@ public class DockerComposeBuilder
             MssqlDataDockerVolume = context.Config.DatabaseDockerVolume;
             EnableKeyConnector = context.Config.EnableKeyConnector;
             EnableScim = context.Config.EnableScim;
+            EnableTraefik = context.Config.EnableTraefik;
             HttpPort = context.Config.HttpPort;
             HttpsPort = context.Config.HttpsPort;
             if (!string.IsNullOrWhiteSpace(context.CoreVersion))
@@ -75,5 +76,6 @@ public class DockerComposeBuilder
         public string CoreVersion { get; set; } = "latest";
         public string WebVersion { get; set; } = "latest";
         public string KeyConnectorVersion { get; set; } = "latest";
+        public bool EnableTraefik { get; set; } = false;
     }
 }
