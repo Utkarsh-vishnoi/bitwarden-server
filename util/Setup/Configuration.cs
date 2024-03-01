@@ -29,7 +29,11 @@ public class Configuration
 
     [Description("Docker compose file port mapping for HTTPS. Leave empty to remove the port mapping.\n" +
         "Learn more: https://docs.docker.com/compose/compose-file/#ports")]
+<<<<<<< HEAD
     public string HttpsPort { get; set; };
+=======
+    public string HttpsPort { get; set; } = "8443";
+>>>>>>> 8c62b26b54c96517945b53cd3ac7ee9078a9e544
 
     [Description("Docker compose file version. Leave empty for default.\n" +
         "Learn more: https://docs.docker.com/compose/compose-file/compose-versioning/")]
